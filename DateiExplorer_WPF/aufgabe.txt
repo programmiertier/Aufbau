@@ -1,0 +1,9 @@
+wpf
+
+
+benutzer soll Pfad eingeben:
+
+gewähltes Verzeichnis
+explorer darstellen
+	ordner
+		dateien
