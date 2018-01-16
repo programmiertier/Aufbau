@@ -8,7 +8,8 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <TextBox Name="eingabe" HorizontalAlignment="Left" Height="50" Margin="25,25,0,0" TextWrapping="Wrap" Text="Verzeichnis bitte eingeben" VerticalAlignment="Top" Width="200" />
-        <Label Name="ausgabe" Content="hier ausgabe" HorizontalAlignment="Left" Height="50" Margin="25,100,0,0" VerticalAlignment="Top" Width="200" Background="Purple" Foreground="White" />
-        <Button Name="knopfi" Content="senden" HorizontalAlignment="Left" Margin="25,-145,0,0" Height="25" Click="knopfi_Click"/>
+        <Button Name="knopf" Content="senden" HorizontalAlignment="Left" Margin="25,-75,0,0" Height="25"  Click="knopf_Click"/>
+        <Label Name="ausgabe" Content="hier ausgabe" HorizontalAlignment="Left" Height="auto" Margin="25,150,0,0" VerticalAlignment="Top" Width="auto" Background="DarkCyan" Foreground="White" />
+        
     </Grid>
 </Window>
