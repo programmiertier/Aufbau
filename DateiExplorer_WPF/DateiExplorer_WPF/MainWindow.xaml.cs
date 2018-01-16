@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Console;
+using System.IO;
 
 namespace DateiExplorer_WPF
 {
@@ -23,6 +25,12 @@ namespace DateiExplorer_WPF
         public MainWindow()
         {
             InitializeComponent();
+            
+        }
+
+        private void eingabe_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
         }
     }
 }
