@@ -41,6 +41,11 @@ namespace BinärDatei
             fs.Close();
 
             ReadLine();
+
+            StreamReader sLeser = new StreamReader(@"C:\Users\Zimmermann\Documents\datei.txt");
+            WriteLine("Interpretation als Text");
+            sLeser.Close();
+            ReadLine();
         }
     }
 }
