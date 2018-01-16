@@ -28,9 +28,17 @@ namespace DateiExplorer_WPF
             
         }
 
-        private void eingabe_TextChanged(object sender, TextChangedEventArgs e)
+        private void knopfi_Click(object sender, RoutedEventArgs e)
         {
-            
+            DriveInfo laufwerk = new DriveInfo(eingabe.Text);
+            ausgabe.Content = laufwerk.Name + "\n" + laufwerk.AvailableFreeSpace + "\n" + laufwerk.DriveFormat;
+            /* laufwerk.DriveType;
+            laufwerk.IsReady;
+            laufwerk.Name;
+            laufwerk.RootDirectory;
+            laufwerk.TotalFreeSpace;
+            laufwerk.TotalSize;
+            laufwerk.VolumeLabel; */
         }
     }
 }
