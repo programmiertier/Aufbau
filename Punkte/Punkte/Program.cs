@@ -14,12 +14,26 @@ namespace Punkte
         {
             //Point-Array erzeugen
             Point[] pArr = new Point[2];
+            Point p = new Point();
+            p.XPos = 10;
+            p.YPos = 20;
+            p.color = 310;
+
+            pArr[0] = p;
+
+            p = new Point();
+            p.XPos = 40;
+            p.YPos = 50;
+            p.color = 110;
+
+            pArr[1] = p;
+            /*
             pArr[0].XPos = 10;
             pArr[0].YPos = 20;
             pArr[0].color = 310;
             pArr[1].XPos = 40;
             pArr[1].YPos = 50;
-            pArr[1].color = 110;
+            pArr[1].color = 110;    */
 
             // Point-Array speichern
             SchreibInDatei(@"C:\Users\Zimmermann\Documents\punkte.dat", pArr);
@@ -90,6 +104,7 @@ namespace Punkte
             //die Poin-Datenin die Datei schreiben
             for (int i = 0; i < array.Length; i++)
             {
+
                 binSchreiber.Write(array[i].XPos);
                 binSchreiber.Write(array[i].YPos);
                 binSchreiber.Write(array[i].color);
