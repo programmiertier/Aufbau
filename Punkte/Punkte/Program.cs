@@ -37,7 +37,7 @@ namespace Punkte
                 WriteLine("neuesArry[{0}].color = {1}", zaehl, neuesArr[zaehl].color);
                 WriteLine(new string('=', 30));
             }
-            ReadLine();
+            
 
             // einen bestimmten Point einlesen
             WriteLine("Welchen Punkt möchten Sie einlesen");
@@ -47,7 +47,7 @@ namespace Punkte
                 Point meinPoint = HolePunkt(@"C:\Users\Zimmermann\Documents\punkte.dat", position);
                 WriteLine("meinPoint.XPos = {0}", meinPoint.XPos);
                 WriteLine("meinPoint.YPos = {0}", meinPoint.YPos);
-                WriteLine("meinPoint.color = 01}", meinPoint.color);
+                WriteLine("meinPoint.color = {0}", meinPoint.color);
             }
             catch (PositionException e)
             {
