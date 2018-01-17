@@ -44,7 +44,12 @@ namespace BinärDatei
 
             StreamReader sLeser = new StreamReader(@"C:\Users\Zimmermann\Documents\datei.txt");
             WriteLine("Interpretation als Text");
+            WriteLine(sLeser.ReadToEnd());
             sLeser.Close();
+
+            fs = new FileStream(@"C:\Users\Zimmermann\Documents\datei.txt", FileMode.Open);
+            BinaryReader bLeser = new BinaryReader(fs);
+            WriteLine(bLeser.ReadInt32());
             ReadLine();
         }
     }
