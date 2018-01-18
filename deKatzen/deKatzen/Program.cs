@@ -5,17 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
 using System.IO;
+using Miau;     // verwendet den Namespace Miau
 
 namespace DeKatzen
 {
-    class Program : Katze
+    class Program
     {
+        // nur innerhalb der Klasse verwandt
+        private static List<Katze> listeKatze = new List<Katze>();
         static void Main(string[] args)
         {
-            WriteLine("Welches Katzerl hätten's denn gern?");
+
+
+            /* WriteLine("Welches Katzerl hätten's denn gern?");
             WriteLine(new string('=', 30));
             ReadLine();
-            FileStream leserStream = new FileStream(@"c:\Uebung\deKatzen.txt", FileMode.Open);
+            FileStream leserStream = new FileStream(@"c:\Uebung\deKatzen.txt", FileMode.OpenOrCreate);
             StreamReader leser = new StreamReader(leserStream);
             WriteLine(leser.ReadToEnd());
             leser.Close();
@@ -27,18 +32,9 @@ namespace DeKatzen
 
             WriteLine("Welche Katzen möchten Sie begutachten?");
             int katze = Convert.ToInt32(ReadLine());
-            WriteLine("Katze Nummer {0}", katze);
+            WriteLine("Katze Nummer {0}", katze);   */
 
             ReadLine();
         }
-
-        void anlegen(int id, int bj, double stand, int leist)
-        {
-            id = katzenID;
-            bj = baujahr;
-            stand = futterStand;
-            leist = schlafLeistung;
-        }
-
     }
 }
