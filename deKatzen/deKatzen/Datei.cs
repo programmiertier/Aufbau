@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Miau
 {
@@ -24,7 +25,7 @@ namespace Miau
             writer.Close();
         }
 
-        public static List<Object> ListeEinlesen(string pfad)
+        public static List<Object> listeEinlesen(string pfad)
         {
             List<Object> liste;
             if (File.Exists(pfad))
@@ -50,6 +51,23 @@ namespace Miau
             }
 
             return liste;
+        }
+
+        public static void SerialisierungObjekt(string pfad, object obj)
+        {
+            FileStream fs = new FileStream(pfad, FileMode.Create);
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(obj);
+            fs.Close();
+        }
+
+        public static Object deserialisiereObjekt(string pfad)
+        {
+            FileStream fs = new FileStream(pfad, FileMode.Open);
+            BinaryFormatter formatter = new BinaryFormatter();
+            object obj = formatter.Deserialize(fs);
+            fs.Close();
+            return obj;
         }
     }
 }
