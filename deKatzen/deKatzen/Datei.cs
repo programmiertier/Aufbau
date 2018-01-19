@@ -1,0 +1,55 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace Miau
+{
+    public class Datei
+    {
+        public static void ListeSpeichern(string pfad, List<Object> liste)
+        {
+            FileStream fs = new FileStream(pfad, FileMode.Create);
+            BinaryWriter writer = new BinaryWriter(fs);
+
+            writer.Write(liste.Count);
+            for (int i = 0; i < liste.Count; i++)
+            {
+                writer.Write(((Katze)liste[i]).baujahr);
+                writer.Write(((Katze)liste[i]).futterStand);
+                writer.Write(((Katze)liste[i]).schlafLeistung);
+            }
+            writer.Close();
+        }
+
+        public static List<Object> ListeEinlesen(string pfad)
+        {
+            List<Object> liste;
+            if (File.Exists(pfad))
+            {
+                FileStream fs = new FileStream(pfad, FileMode.Open);
+                BinaryReader reader = new BinaryReader(fs);
+
+                int anzahl = reader.ReadInt32();
+                liste = new List<Object>();
+                for (int i = 0; i < anzahl; i++)
+                {
+                    Katze pkw = new Katze();
+                    pkw.baujahr = reader.ReadInt32();
+                    pkw.futterStand = reader.ReadInt32();
+                    pkw.schlafLeistung = reader.ReadInt32();
+                    liste.Add(pkw);
+                }
+                reader.Close();
+            }
+            else
+            {
+                liste = null;
+            }
+
+            return liste;
+        }
+    }
+}

@@ -24,11 +24,5 @@ namespace Miau
         public int schlafLeistung { get; set; }
 
         public Katze() { }
-
-        public Katze(int baujahr, double futterStand, int schlafLeistung )
-        {
-            WriteLine("dem Jahr{0}\tFutterStand {1} und \tSchlafleistung {2}", 
-                        baujahr, futterStand, schlafLeistung);
-        }
     }
 }
