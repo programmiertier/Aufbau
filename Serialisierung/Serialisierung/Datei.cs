@@ -20,7 +20,7 @@ namespace Miau
             {
                 /* writer.Write(((Katze)liste[i]).baujahr);
                 writer.Write(((Katze)liste[i]).futterStand);
-                writer.Write(((Katze)liste[i]).schlafLeistung); */
+                writer.Write(((Katze)liste[i]).schlafLeistung);*/
             }
             writer.Close();
         }
@@ -37,11 +37,11 @@ namespace Miau
                 liste = new List<Object>();
                 for (int i = 0; i < anzahl; i++)
                 {
-                    Katze pkw = new Katze();
-                    pkw.baujahr = reader.ReadInt32();
-                    pkw.futterStand = reader.ReadInt32();
-                    pkw.schlafLeistung = reader.ReadInt32();
-                    liste.Add(pkw);
+                    /* Katze miau = new Katze();
+                    miau.baujahr = reader.ReadInt32();
+                    miau.futterStand = reader.ReadInt32();
+                    miau.schlafLeistung = reader.ReadInt32();
+                    liste.Add(miau);    */
                 }
                 reader.Close();
             }
@@ -57,7 +57,7 @@ namespace Miau
         {
             FileStream fs = new FileStream(pfad, FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(fs, obj);
+            formatter.Serialize(obj);
             fs.Close();
         }
 

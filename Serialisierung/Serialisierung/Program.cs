@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static System.Console;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
+using Miau;
 
 namespace Serialisierung
 {
@@ -19,27 +15,14 @@ namespace Serialisierung
             liste.Add(babyPorg);
             babyPorg = new Person(5, "Porg");
             liste.Add(babyPorg);
-            FileStream stream;
-            stream = new FileStream(@"C:\Uebung\person.dat", FileMode.Create);
-            BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(stream, babyPorg);
-            // formatter.Serialize(stream, liste);
-            stream.Close();
 
-            stream = new FileStream(@"C:\Uebung\person.dat", FileMode.Open);
-            BinaryFormatter formatter1 = new BinaryFormatter();
-
-            // gibt ein Object. unser Object ist aus der Klasse Person
-            babyPorg = (Person)formatter1.Deserialize(stream);
-            WriteLine(babyPorg.alter + " " + babyPorg._name);
-            ReadLine();
-
-            BinaryFormatter formatter2 = new BinaryFormatter();
-            List<Object> neueListe = new List<Object>();
-            neueListe = (List<Object>)formatter2.Deserialize(stream);
-            for (int zaehl = 0; zaehl < neueListe.Count; zaehl++)
+            Datei.serialisierungObjekt(@"C:\Uebung\serial.dat", liste);
+            List<Person> listeNeu = new List<Person>();
+            listeNeu = (List<Person>)Datei.deserialisiereObjekt(@"C:\Uebung\serial.dat");
+            
+            for (int zaehl = 0; zaehl < listeNeu.Count; zaehl++)
             {
-                WriteLine(((Person)neueListe[zaehl]).alter + " " + ((Person)neueListe[zaehl])._name);
+                WriteLine(((Person)listeNeu[zaehl]).alter + " " + ((Person)listeNeu[zaehl])._name);
             }
             ReadLine();
 

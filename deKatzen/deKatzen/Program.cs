@@ -18,7 +18,7 @@ namespace DeKatzen
         static void Main(string[] args)
         {
             liste = new ListeKatze();
-            liste.liste = Datei.ListeEinlesen(pfad);
+            liste.liste = Datei.listeEinlesen(pfad);
             do
             {
                 WriteLine("Katzen erstellen heute in simpel");
@@ -26,7 +26,8 @@ namespace DeKatzen
                 WriteLine("1 Katze erstellen");
                 WriteLine("2 alle Katzen zeigen");
                 WriteLine("3 eine Katze anzeigen");
-                WriteLine("4 speichern");
+                WriteLine("4 binär speichern");
+                WriteLine("5 Serialisiert speichern");
                 WriteLine("ESC für beenden");
                 WriteLine("Auswahl bitte: ");
 
@@ -41,19 +42,22 @@ namespace DeKatzen
                 switch (auswahl)
                 {
                     case '1':
-                        liste.Hinzufuegen(KatzeEingeben());
+                        liste.Hinzufuegen(katzeEingeben());
                         break;
                     case '2':
                         alleAnzeigen();
                         break;
                     case '3':
-                        int id = KatzeSuchenEingabe();
-                        KatzeAnzeigen(liste.SucheKatze(id), id);
+                        int id = katzeSuchenEingabe();
+                        katzeAnzeigen(liste.SucheKatze(id), id);
                         break;
                     case '4':
                         Datei.ListeSpeichern(pfad, liste.liste);
                         break;
                     case '5':
+                        Datei.serialisierungObjekt(pfad, liste.liste);
+                        break;
+                    case '6':
                         Datei.ListeSpeichern(pfad, liste.liste);
                         Environment.Exit(0);
                         break;
@@ -87,7 +91,7 @@ namespace DeKatzen
             int katze = Convert.ToInt32(ReadLine());
             WriteLine("Katze Nummer {0}", katze);   */
         }
-        private static Katze KatzeEingeben()
+        private static Katze katzeEingeben()
         {
             Katze miez = new Katze();
             Clear();
@@ -109,12 +113,12 @@ namespace DeKatzen
             WriteLine(new string('-', 30));
             for (int i = 0; i < liste.liste.Count; i++)
             {
-                KatzeAnzeigen(liste.liste[i], i);
+                katzeAnzeigen(liste.liste[i], i);
                 WriteLine(new string('/', 30));
             }
         }
 
-        private static void KatzeAnzeigen(Object miez, int id)
+        private static void katzeAnzeigen(Object miez, int id)
         {
             if (miez != null)
             {
@@ -133,7 +137,7 @@ namespace DeKatzen
             ReadLine();
         }
 
-        private static int KatzeSuchenEingabe()
+        private static int katzeSuchenEingabe()
         {
             Clear();
             WriteLine("Katze suchen");

@@ -24,5 +24,8 @@ namespace Miau
         public int schlafLeistung { get; set; }
 
         public Katze() { }
+
+        public string fahrgestellnummer { get; set; }
+        public string kennzeichen { get; set; }
     }
 }
