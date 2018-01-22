@@ -16,9 +16,9 @@ namespace XML_serial
             get { return _name; }
             set { _name = value; }
         }
-        public Person(string name, int alter)
-        { name = name;
-            alter = alter;
+        public Person(string __name, int __alter)
+        { name = __name;
+           alter = __alter;
         }
     }
 }
