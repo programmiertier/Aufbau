@@ -83,7 +83,9 @@ namespace Miau
         {
             FileStream fs = new FileStream(pfad, FileMode.Open);
             XmlSerializer serializer = new XmlSerializer(type);
-            return serializer.Deserialize(fs);
+            object obj = serializer.Deserialize(fs);
+            fs.Close();
+            return obj;
         }
     }
 }
