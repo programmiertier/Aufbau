@@ -57,7 +57,7 @@ namespace Miau
         {
             FileStream fs = new FileStream(pfad, FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(obj);
+            formatter.Serialize(fs, obj);
             fs.Close();
         }
 
