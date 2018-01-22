@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Xml.Serializer;
+using System.Xml.Serialization;
 
 namespace Miau
 {
@@ -77,6 +77,13 @@ namespace Miau
             XmlSerializer serializer = new XmlSerializer(type);
             serializer.Serialize(fs, obj);
             fs.Close();
+        }
+
+        public static object xmlDeseriasierungObjekt(string pfad, Type type)
+        {
+            FileStream fs = new FileStream(pfad, FileMode.Open);
+            XmlSerializer serializer = new XmlSerializer(type);
+            return serializer.Deserialize(fs);
         }
     }
 }
