@@ -60,5 +60,11 @@ namespace Bibliothek
             lstMedien.ItemsSource = liste.list;
 
         }
+
+        private void btn_neu_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new Window();
+            window.Show();
+        }
     }
 }

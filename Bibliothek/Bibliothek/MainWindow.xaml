@@ -23,9 +23,9 @@
             <Label Grid.Row="0" Grid.Column="0" Background="Green" Foreground="Orange" Name="linksoben" Content="Liste aller Medien"/>
             <ListBox Margin="5,5" Grid.Row="1" Grid.Column="0" Background="WhiteSmoke" Name="lstMedien" />
             <StackPanel Grid.Row="1" Grid.Column="1">
-                <Button Name="btn_neu" Margin="5,5" Content="neu"/>
-                <Button Name="btn_bearbeiten" Margin="5,5" Content="bearbeiten" />
-                <Button Name="btn_loeschen" Margin="5,5" Content="löschen"/>
+                <Button Name="btn_neu" Margin="5,5" Content="neu" Click="btn_neu_Click"/>
+                <Button Name="btn_bearbeiten" Margin="5,5" Content="bearbeiten" IsEnabled="False"/>
+                <Button Name="btn_loeschen" Margin="5,5" Content="löschen" IsEnabled="False"/>
             </StackPanel>
         </Grid>
     </DockPanel>
