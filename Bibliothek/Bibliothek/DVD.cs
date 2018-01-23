@@ -6,15 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bibliothek
 {
-    class DVD : Medium
+    class DVD : OptischeMedien
     {
-        public int spieldauer;
+        public string regisseur { get; set; }
         public DVD() { }
-        public DVD(string _titel, int _erscheinung, int _spieldauer)
-        {
-            titel = _titel;
-            erscheinung = _erscheinung;
-            spieldauer = _spieldauer;
-        }
     }
 }

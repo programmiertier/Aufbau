@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Bibliothek
 {
-    class CD : OptischeMedien
+    class OptischeMedien : Medium
     {
-        public int interpret;
-        public CD() { }
+        public int dauer { get; set; }
     }
 }

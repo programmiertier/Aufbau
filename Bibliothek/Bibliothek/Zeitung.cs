@@ -10,10 +10,5 @@ namespace Bibliothek
     {
         public int ausgabe { get; set; }
         public Zeitung() { }
-        public Zeitung(string _titel, int _erscheinung, int _seiten)
-        {
-            titel = _titel;
-            erscheinung = _erscheinung;
-        }
     }
 }

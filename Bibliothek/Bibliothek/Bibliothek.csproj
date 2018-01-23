@@ -61,6 +61,7 @@
     </ApplicationDefinition>
     <Compile Include="CD.cs" />
     <Compile Include="DVD.cs" />
+    <Compile Include="OptischeMedien.cs" />
     <Compile Include="Print.cs" />
     <Compile Include="Zeitung.cs" />
     <Page Include="MainWindow.xaml">
@@ -97,6 +98,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Bibliothek.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

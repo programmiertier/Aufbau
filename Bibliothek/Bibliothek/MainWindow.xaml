@@ -7,11 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <DockPanel>
-        <StackPanel Orientation="Vertical" Width="100" DockPanel.Dock="Right">
-            <Button Height="30" Name="btnFett" Click="btnFett_Click" Margin="5,5,5,5">Fett</Button>
-            <Button Height="30" Name="btnLaden" Click="btnLaden_Click" Margin="5,0,5,5">Laden</Button>
-            <Button Height="30" Name="btnSpeichern" Click="btnSpeichern_Click" Margin="5,0,5,5">Speichern</Button>
+        <StackPanel DockPanel.Dock="Bottom" Height="auto" HorizontalAlignment="Right" Width="200">
+            <Button Name="btnBeenden" Width="150" Content="beenden" />
         </StackPanel>
-        <RichTextBox Name="rtbDocument" Margin="5,5,5,5" Background="LightGray" FontSize="18"></RichTextBox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="25" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Background="Green" Foreground="Orange" Name="linksoben" Content="Liste aller Medien"/>
+            <ListBox Margin="5,5" Grid.Row="1" Grid.Column="0" Background="WhiteSmoke" Name="listbox" />
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <Button Name="btn_neu" Margin="5,5" Content="neu"/>
+                <Button Name="btn_bearbeiten" Margin="5,5" Content="bearbeiten" />
+                <Button Name="btn_loeschen" Margin="5,5" Content="löschen"/>
+            </StackPanel>
+        </Grid>
     </DockPanel>
 </Window>
