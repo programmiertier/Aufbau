@@ -10,5 +10,10 @@ namespace Bibliothek
     {
         public string titel;
         public int erscheinung;
+
+        public override string ToString()
+        {
+            return titel;
+        }
     }
 }

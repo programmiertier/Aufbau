@@ -10,5 +10,10 @@ namespace Bibliothek
     {
         public string regisseur { get; set; }
         public DVD() { }
+
+        public override string ToString()
+        {
+            return base.ToString() + " (DVD)";
+        }
     }
 }

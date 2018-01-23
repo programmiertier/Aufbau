@@ -14,5 +14,10 @@ namespace Bibliothek
         public string widmung { get { return _widmung; } set { _widmung = value; } }
 
         public Buch() { }
+
+        public override string ToString()
+        {
+            return base.ToString() + " (Buch)";
+        }
     }
 }

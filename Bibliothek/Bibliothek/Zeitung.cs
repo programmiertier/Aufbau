@@ -10,5 +10,10 @@ namespace Bibliothek
     {
         public int ausgabe { get; set; }
         public Zeitung() { }
+
+        public override string ToString()
+        {
+            return base.ToString() + " (Zeitung)";
+        }
     }
 }

@@ -25,7 +25,39 @@ namespace Bibliothek
         {
             InitializeComponent();
 
-            
+            VerwListe liste = new VerwListe();
+            Buch buch = new Buch();
+            buch.autor = "Terry Pratchett";
+            buch.isbn = "9-256-12345-1";
+            buch.titel = "Wachen! Wachen!";
+            buch.verlag = "Klett";
+
+            liste.Add(buch);
+
+            Zeitung zeitung = new Zeitung();
+            zeitung.ausgabe = 1;
+            zeitung.titel = "Zeit";
+            zeitung.isbn = "9-999-12345-2";
+            zeitung.verlag = "Mordor";
+            liste.Add(zeitung);
+
+            CD cd = new CD();
+            cd.interpret = "Megaherz";
+            cd.titel = "Kopfschuss";
+            cd.erscheinung = 2000;
+            cd.dauer = 43;
+
+            liste.Add(cd);
+
+            DVD dvd = new DVD();
+            dvd.dauer = 96;
+            dvd.titel = "Matrix";
+            dvd.erscheinung = 1999;
+            dvd.regisseur = "Wachovskis";
+
+            liste.Add(dvd);
+
+            lstMedien.ItemsSource = liste.list;
 
         }
     }

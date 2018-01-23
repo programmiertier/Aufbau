@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Bibliothek
 {
-    class CD : OptischeMedien
+    class VerwListe
     {
-        public string interpret;
-        public CD() { }
+        public List<Medium> list { get; set; }
 
-        public override string ToString()
+        public VerwListe()
         {
-            return base.ToString() + " (CD)";
+            list = new List<Medium>();
         }
+
+
     }
 }
