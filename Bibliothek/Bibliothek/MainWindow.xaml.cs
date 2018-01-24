@@ -119,15 +119,16 @@ namespace Bibliothek
 
         private void btn_speichern_Click(object sender, RoutedEventArgs e)
         {
-            Medium med = new Medium();
+            lstMedien.ItemsSource = null;
+            // Medium med = new Medium();
             if (cmbtyp.SelectedIndex == 0)
             {
-                med = new Buch();
-                ((Buch)med).autor = txtausgabenummer.Text;
-                ((Buch)med).isbn = txtISBN.Text;
-                ((Buch)med).titel = txtTitel.Text;
-                ((Buch)med).verlag = txtVerlag.Text;
-                
+                Buch buch = new Buch();
+                buch.autor = txtausgabenummer.Text;
+                buch.isbn = txtISBN.Text;
+                buch.titel = txtTitel.Text;
+                buch.verlag = txtVerlag.Text;
+                liste.add(buch);
                 
             }
             else if (cmbtyp.SelectedIndex == 1)
@@ -137,6 +138,7 @@ namespace Bibliothek
                 zeitung.isbn = txtISBN.Text;
                 zeitung.titel = txtTitel.Text;
                 zeitung.verlag = txtVerlag.Text;
+                liste.add(zeitung);
             }
             else if (cmbtyp.SelectedIndex == 2)
             {
@@ -144,6 +146,7 @@ namespace Bibliothek
                 dvd.dauer = Convert.ToInt32(txtISBN.Text);
                 dvd.regisseur = txtausgabenummer.Text;
                 dvd.titel = txtTitel.Text;
+                liste.add(dvd);
             }
             else if (cmbtyp.SelectedIndex == 3)
             {
@@ -151,8 +154,14 @@ namespace Bibliothek
                 cd.dauer = Convert.ToInt32(txtISBN.Text);
                 cd.interpret = txtausgabenummer.Text;
                 cd.titel = txtTitel.Text;
+                liste.add(cd);
             }
-            liste.add(med);
+            lstMedien.ItemsSource = liste.list;
+            stackEingabe.Visibility = Visibility.Collapsed;
+            stackListe.Visibility = Visibility.Visible;
+            btn_abbrechen.IsEnabled = false;
+            btn_speichern.IsEnabled = false;
+            // liste.add(med);
         }
     }
 }
