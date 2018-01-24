@@ -7,23 +7,59 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <DockPanel>
-        <StackPanel DockPanel.Dock="Bottom" Height="auto" HorizontalAlignment="Right" Width="200">
-            <Button Name="btnBeenden" Width="150" Content="beenden" />
+        <StackPanel DockPanel.Dock="Bottom" Height="Auto" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button Name="btnBeenden" Width="80" Margin="5">Beenden</Button>
         </StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition Height="25" />
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="11"></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Background="Green" Foreground="Orange" Name="linksoben" Content="Liste aller Medien"/>
-            <ListBox Margin="5,5" Grid.Row="1" Grid.Column="0" Background="WhiteSmoke" Name="lstMedien" />
-            <StackPanel Grid.Row="1" Grid.Column="1">
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Height="260" Name="stackListe" Visibility="Visible">
+                <Label  Background="Black" Foreground="WhiteSmoke">Liste aller Medien</Label>
+                <ListBox Height="225" Name="lstMedien" Margin="5,5" Background="WhiteSmoke" SelectionChanged="lstMedien_SelectionChanged"></ListBox>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Height="260" Name="stackEingabe" Visibility="Collapsed">
+                <Label  Background="Black" Foreground="WhiteSmoke">Medium erfassen</Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition Name="rowverlag"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Content="Mediumtyp" />
+                    <ComboBox Grid.Column="1" Grid.Row="0" Name="cmbtyp" SelectionChanged="cmbtyp_SelectionChanged">
+                        <ComboBoxItem Content="Buch"></ComboBoxItem>
+                        <ComboBoxItem Content="Zeitung"></ComboBoxItem>
+                        <ComboBoxItem Content="DVD"></ComboBoxItem>
+                        <ComboBoxItem Content="CD"></ComboBoxItem>
+                    </ComboBox>
+                    <Label Grid.Column="0" Grid.Row="1" Content="Titel" Name="lblTitel"/>
+                    <TextBox Grid.Column="1" Grid.Row="1"></TextBox>
+                    <Label Grid.Column="0" Grid.Row="2" Content="ISBN" Name="lblISBN"/>
+                    <Label Grid.Column="0" Grid.Row="2" Visibility="Collapsed" Content="Dauer" Name="lblDauer"/>
+                    <TextBox Grid.Column="1" Grid.Row="2"></TextBox>
+                    <Label Grid.Column="0" Grid.Row="3" Content="Verlag" Name="lblVerlag"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" Name="txtVerlag"></TextBox>
+                    <Label Grid.Column="0" Grid.Row="4" Content="Ausgabennummer" Name="lblausgabenummer"/>
+                    <TextBox Grid.Column="1" Grid.Row="4"></TextBox>
+                </Grid>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="1">
                 <Button Name="btn_neu" Margin="5,5" Content="neu" Click="btn_neu_Click"/>
+                <Button Name="btn_speichern" Margin="5,5" Content="speichern" IsEnabled="False"/>
+                <Button Name="btn_abbrechen" Margin="5,5" Content="abbrechen" IsEnabled="False" Click="btn_abbrechen_Click"/>
                 <Button Name="btn_bearbeiten" Margin="5,5" Content="bearbeiten" IsEnabled="False"/>
                 <Button Name="btn_loeschen" Margin="5,5" Content="löschen" IsEnabled="False"/>
             </StackPanel>
