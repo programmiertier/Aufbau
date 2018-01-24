@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Datenbindung"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="530" Width="525">
     <StackPanel>
         <TextBox Height="25" Margin="10,10,10,0" Name="txtbox" Text="{Binding ElementName=lstBox, Path=SelectedItem.Content}" />
         <ListBox Margin="10,10,10,10" Name="lstBox" Background="Yellow">
@@ -51,5 +51,12 @@
             <TextBox Name="txtOneWayToSourceQuelle" Grid.Column="1" Grid.Row="5" />
             <TextBox Name="txtOneWayToSourceZiel" Grid.Column="2" Grid.Row="5" Text="{Binding ElementName=txtOneWayToSourceQuelle, Path=Text, Mode=OneWayToSource}"/>
         </Grid>
+        <StackPanel>
+            <TextBox Name="txtSource" Margin="10"></TextBox>
+            <TextBox Name="txtTarget" Margin="10" 
+             Text="{Binding ElementName=txtSource, Path=Text, 
+             UpdateSourceTrigger=Explicit, NotifyOnSourceUpdated=True}" Binding.SourceUpdated="txtTarget_SourceUpdated"/>
+            <Button Name="btnUpdate" Margin="10" Width="120" Click="btnUpdate_Click" >Aktualisieren</Button>
+        </StackPanel>
     </StackPanel>
 </Window>

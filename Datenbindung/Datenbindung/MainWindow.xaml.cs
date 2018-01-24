@@ -28,7 +28,20 @@ namespace Datenbindung
             binding.ElementName = "lstBox";
             txtbox.SetBinding(TextBox.BackgroundProperty, binding);
 
-            
+            BindingOperations.ClearBinding(txtbox, TextBox.BackgroundProperty);
+
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            BindingExpression binding = txtTarget.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateSource();
+        }
+
+        private void txtTarget_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+            MessageBox.Show("Aktualisierung durchgeführt!");
+            //BindingOperations.ClearAllBindings(txtTarget);
         }
     }
 }
