@@ -21,11 +21,12 @@ namespace Bibliothek
     /// </summary>
     public partial class MainWindow : Window
     {
+        VerwListe liste = new VerwListe();
         public MainWindow()
         {
             InitializeComponent();
 
-            VerwListe liste = new VerwListe();
+            
             Buch buch = new Buch();
             buch.autor = "Terry Pratchett";
             buch.isbn = "9-256-12345-1";
@@ -73,6 +74,7 @@ namespace Bibliothek
             stackEingabe.Visibility = Visibility.Visible;
             stackListe.Visibility = Visibility.Collapsed;
             btn_abbrechen.IsEnabled = true;
+            btn_speichern.IsEnabled = true;
         }
 
         private void cmbtyp_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -112,6 +114,45 @@ namespace Bibliothek
             stackEingabe.Visibility = Visibility.Collapsed;
             stackListe.Visibility = Visibility.Visible;
             btn_abbrechen.IsEnabled = false;
+            btn_speichern.IsEnabled = false;
+        }
+
+        private void btn_speichern_Click(object sender, RoutedEventArgs e)
+        {
+            Medium med = new Medium();
+            if (cmbtyp.SelectedIndex == 0)
+            {
+                med = new Buch();
+                ((Buch)med).autor = txtausgabenummer.Text;
+                ((Buch)med).isbn = txtISBN.Text;
+                ((Buch)med).titel = txtTitel.Text;
+                ((Buch)med).verlag = txtVerlag.Text;
+                
+                
+            }
+            else if (cmbtyp.SelectedIndex == 1)
+            {
+                Zeitung zeitung = new Zeitung();
+                zeitung.ausgabe = Convert.ToInt32(txtausgabenummer.Text);
+                zeitung.isbn = txtISBN.Text;
+                zeitung.titel = txtTitel.Text;
+                zeitung.verlag = txtVerlag.Text;
+            }
+            else if (cmbtyp.SelectedIndex == 2)
+            {
+                DVD dvd = new DVD();
+                dvd.dauer = Convert.ToInt32(txtISBN.Text);
+                dvd.regisseur = txtausgabenummer.Text;
+                dvd.titel = txtTitel.Text;
+            }
+            else if (cmbtyp.SelectedIndex == 3)
+            {
+                CD cd = new CD();
+                cd.dauer = Convert.ToInt32(txtISBN.Text);
+                cd.interpret = txtausgabenummer.Text;
+                cd.titel = txtTitel.Text;
+            }
+            liste.add(med);
         }
     }
 }
