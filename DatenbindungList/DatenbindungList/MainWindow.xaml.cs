@@ -27,12 +27,16 @@ namespace DatenbindungList
         {
             liste.Add(new Person { name = "V Zim", adresse = "Köln", alter = 31 });
             liste.Add(new Person { name = "Klaus Kleber", adresse = "Köln", alter = 79 });
-            liste.Add(new Person { name = "Karla Meier", adresse = "Berlin", alter = 56 });
+            liste.Add(new Person { name = "Karla Meier", adresse = "Berlin", alter = 46 });
+            liste.Add(new Person { name = "Paul Paulchen", adresse = "Mainz", alter = 23 });
+            liste.Add(new Person { name = "Otto Friede", adresse = "Flensburg", alter = 80 });
+            liste.Add(new Person { name = "Martha Bauer", adresse = "München", alter = 56 });
             InitializeComponent();
             listBox1.ItemsSource = liste;
             listBox1.DisplayMemberPath = "name";
             listBox1.SelectedIndex = 0;
             listBox1.Focus();
+            lstView.ItemsSource = liste;
             
         }
 
