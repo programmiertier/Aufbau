@@ -27,6 +27,7 @@ namespace DatenbindungList
         {
             liste.Add(new Person { name = "V Zim", adresse = "Köln", alter = 31 });
             liste.Add(new Person { name = "Klaus Kleber", adresse = "Köln", alter = 79 });
+            liste.Add(new Person { name = "Karla Meier", adresse = "Berlin", alter = 56 });
             InitializeComponent();
             listBox1.ItemsSource = liste;
             listBox1.DisplayMemberPath = "name";

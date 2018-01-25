@@ -11,7 +11,20 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
         <ListBox Grid.Row="0" Grid.Column="0"  Name="listBox1"></ListBox>
+        <ListView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Name="lstView">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Path=name}"/>
+                    <GridViewColumn Header="Alter" Width="100" DisplayMemberBinding="{Binding Path=alter}"/>
+                    <GridViewColumn Header="Adresse" Width="100" DisplayMemberBinding="{Binding Path=adresse}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
         <Grid Grid.Column="1" Grid.Row="0"  DataContext="{Binding ElementName=listBox1, Path=SelectedItem}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
