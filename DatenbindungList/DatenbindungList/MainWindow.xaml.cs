@@ -40,12 +40,6 @@ namespace DatenbindungList
             
         }
 
-
-        private void btn_bearbeiten_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btn_hinzufuegen_Click(object sender, RoutedEventArgs e)
         {
             // Binding hinzufügen
