@@ -83,7 +83,7 @@ namespace DatenbindungList
 
         private void btn_loeschen_Click(object sender, RoutedEventArgs e)
         {
-            liste.RemoveAt(Convert.ToInt32(listBox1.SelectedItem));
+            liste.RemoveAt(listBox1.SelectedIndex);
         }
 
         private void setBinding()
